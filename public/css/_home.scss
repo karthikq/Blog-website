@@ -1,0 +1,546 @@
+/** @format */
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1f1d1f;
+  padding-bottom: 1rem;
+  overflow: hidden;
+}
+.loader {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background-color: rgb(255, 255, 255);
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// .loader-active {
+//   transition: all 0.5s ease-in-out;
+//   animation: identifier 2s ease-in-out forwards;
+// }
+@keyframes identifier {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.contents {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.nav-bar {
+  width: 100%;
+  min-height: 6rem;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+.brand {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  position: relative;
+  padding: 0 4rem;
+  .error-div {
+    background-color: rgba(255, 0, 0, 0.849);
+    position: fixed;
+    z-index: 30000;
+    right: 20rem;
+    animation: fadeout 3s forwards 2s;
+  }
+  .errors {
+    font-family: "Poppins", sans-serif;
+    color: #eeeded;
+    margin: 0 0.5rem;
+    font-size: 0.9rem;
+  }
+  h4 {
+    font-family: "Poppins", sans-serif;
+    color: #e4e4e4;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    animation: fadeout 3s linear forwards;
+    animation-delay: 4s;
+    span {
+      font-size: 1.4rem;
+      text-transform: capitalize;
+      font-weight: 400;
+      color: #fd7ae1;
+    }
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+.nav-bar .brand h2 {
+  font-family: "Press Start 2P", cursive;
+  margin: 0;
+  color: #f040ca;
+  font-size: 1rem;
+
+  letter-spacing: 1px;
+}
+.side-bar {
+  width: 18rem;
+  height: 92vh;
+  position: fixed;
+  right: 0;
+  top: 6rem;
+  z-index: 10;
+  background-color: black;
+  .side-bar-items {
+    margin: 4rem auto;
+    text-align: center;
+    button {
+      font-family: "Press Start 2P", cursive;
+      width: 14rem;
+      height: 100%;
+      padding: 0.8rem 0;
+      background-color: #dd4fca;
+      color: white;
+      border: 0;
+      outline: 0;
+      font-size: 0.6rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      border: 2px solid #dd4fca;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      &:hover {
+        background: transparent;
+      }
+    }
+    a {
+      list-style: none;
+      text-decoration: none;
+      color: #ffffff;
+    }
+  }
+}
+.logout {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  button {
+    font-family: "Press Start 2P", cursive;
+    width: 5rem;
+    height: 100%;
+    padding: 0.8rem 0;
+    background-color: #e4e4e4;
+    color: rgb(0, 0, 0);
+    border: 0;
+    outline: 0;
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border: 2px solid #000000;
+    transition: 0.2s ease;
+    &:hover {
+      background: transparent;
+      color: #e4e4e4;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
+.users {
+  width: 14rem;
+  height: 20rem;
+  background-color: rgba(231, 225, 225, 0.151);
+  margin: 6rem auto;
+  padding-bottom: 1rem;
+
+  overflow-y: auto;
+  text-align: center;
+  h2 {
+    color: #fffffff8;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.8px;
+    padding: 1rem 0 0.5rem;
+    font-weight: 300;
+    text-transform: none;
+    margin: 0.5rem 0 0;
+  }
+}
+.users::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.users::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(100, 99, 99);
+  border-radius: 10px;
+}
+
+/* Handle */
+.users::-webkit-scrollbar-thumb {
+  background: rgba(228, 228, 228, 0.699);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.users::-webkit-scrollbar-thumb:hover {
+  background: rgba(207, 206, 207, 0.74);
+}
+.user-names {
+  position: relative;
+  z-index: -1;
+}
+.user-name {
+  width: 60%;
+  border-left: 2px solid rgb(141, 66, 148);
+
+  margin: 1.5rem 2.1rem;
+  padding: 0.3rem;
+  position: relative;
+  z-index: 1;
+
+  height: 1rem;
+  text-align: center;
+  display: flex;
+
+  align-items: center;
+  img {
+    width: 25px;
+    height: 26px;
+    object-fit: cover;
+    opacity: 0.82;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  p {
+    color: #ffffffec;
+    text-align: left;
+    font-family: "Press Start 2P", cursive;
+    margin: 0;
+    padding: 0.5rem 0.8rem;
+    font-weight: 500;
+    font-size: 0.6rem;
+    letter-spacing: 1.4px;
+    text-transform: capitalize;
+  }
+}
+.anchor {
+  text-decoration: none;
+  color: rgba(148, 192, 250, 0.945);
+  margin-left: 0.2rem;
+}
+.user-posts {
+  padding-top: 5rem;
+  width: 100%;
+  height: 100%;
+}
+.style {
+  width: 2.6rem;
+  height: 6.5rem;
+  background-color: #534953;
+  margin-left: 4rem;
+  position: relative;
+  z-index: 1;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+      rgba(39, 38, 38, 0.281),
+      rgba(24, 23, 23, 0.548)
+    );
+    mix-blend-mode: soft-light;
+  }
+}
+.alert-message {
+  margin-top: 15rem;
+  padding-right: 10rem;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+
+  h2 {
+    color: #e4e4e4;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+  .wrong-user {
+    button {
+      font-family: "Press Start 2P", cursive;
+
+      width: 8rem;
+      height: 100%;
+      padding: 0.8rem 0;
+      background-color: #c549b0;
+      color: rgb(255, 255, 255);
+      border: 0;
+      outline: 0;
+      font-size: 0.6rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      border: 2px solid #000000;
+      transition: 0.2s ease;
+      &:hover {
+        background: transparent;
+        color: #e4e4e4;
+      }
+    }
+  }
+}
+
+.users-posts-margin {
+  margin: 3rem 0;
+  display: flex;
+  align-items: center;
+}
+.posts-rectangle {
+  margin-left: 0rem;
+  padding: 0.5rem 1rem;
+  width: 60%;
+  min-height: 5rem;
+  color: #ffffffce;
+  background-color: #000000a9;
+  border-bottom-right-radius: 15px;
+  position: relative;
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0);
+  .posts-user-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h4 {
+      color: rgb(199, 85, 209);
+      font-family: "Poppins", sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0;
+      letter-spacing: 0.75px;
+      text-transform: capitalize;
+
+      &:hover {
+        color: rgba(255, 255, 255, 0.925);
+      }
+    }
+    p {
+      font-family: "Poppins", sans-serif;
+      font-weight: 300;
+      margin: 0;
+    }
+  }
+  .users-post {
+    font-family: "Poppins", sans-serif;
+  }
+}
+.delete-btn {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.icons {
+  display: flex;
+  align-items: center;
+
+  position: absolute;
+  right: 1rem;
+  bottom: 0.5rem;
+}
+.edit {
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  .far {
+    cursor: pointer;
+    color: #ebebeb57;
+  }
+}
+.delete-icon {
+  padding: 0.5rem;
+  cursor: pointer;
+  .fas {
+    color: #e4e4e4da;
+    transition: all 0.2s;
+    &:hover {
+      color: rgb(194, 58, 58);
+      transform: scale(1.1);
+    }
+  }
+}
+.ham .navbar-anima {
+  display: none;
+}
+@media screen and (max-width: 1035px) {
+  .users {
+    margin: 6rem auto;
+
+    h2 {
+      color: #ffffffec;
+    }
+  }
+  .user-name {
+    width: 60%;
+    background: transparent;
+    margin: 1.8rem 2.1rem;
+    border-left: 3px solid rgb(141, 61, 137);
+    position: relative;
+    z-index: 1;
+    height: 1rem;
+    text-align: center;
+    display: flex;
+
+    align-items: center;
+    p {
+      margin: 0;
+      padding: 0.5rem 0.5rem;
+      font-weight: 500;
+
+      letter-spacing: 1.4px;
+    }
+  }
+  .style {
+    height: 6rem;
+  }
+  .users-posts-margin {
+    margin: 4rem 0;
+
+    justify-content: center;
+    .posts-user-name {
+      h4 {
+        font-size: 1.3rem;
+      }
+    }
+    .users-post {
+      font-family: "Poppins", sans-serif;
+      p {
+        font-size: 0.9rem;
+        padding-right: 6rem;
+      }
+    }
+  }
+  .side-bar {
+    top: 2rem;
+    clip-path: circle(25px at 85% 2%);
+    transition: all 1s ease-in-out;
+    padding-bottom: 2rem;
+
+    .ham {
+      position: absolute;
+      top: 0%;
+      right: 12%;
+      cursor: pointer;
+      .navbar-anima {
+        display: inline-block;
+        transition: all 0.5s ease-in-out;
+        opacity: 1;
+      }
+      .navbar-anima.fadeout {
+        animation: animate 1s ease-in-out forwards;
+      }
+      .navbar-anima.fadein {
+        transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+      }
+    }
+  }
+  @keyframes animate {
+    0% {
+      opacity: 0.5;
+      transform: rotate(0);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes animate2 {
+    0% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+      transition: 2s linear 2s;
+    }
+  }
+  .side-bar.active {
+    clip-path: circle(1000px at 85% 2%);
+  }
+}
+@media screen and (max-width: 842px) {
+  .user-posts {
+    padding-top: 6.5rem;
+  }
+  .brand {
+    padding: 0 1rem;
+    .error-div {
+      position: fixed;
+      top: 6.5rem;
+      right: 0.2rem;
+      z-index: 30000000;
+    }
+  }
+  .style {
+    width: 2.6rem;
+    height: 6rem;
+    background-color: #534953;
+    margin-left: 0rem;
+  }
+  .users-posts-margin {
+    margin: 3rem 0;
+
+    justify-content: center;
+    .posts-user-name {
+      h4 {
+        font-size: 1.3rem;
+      }
+    }
+    .users-post {
+      font-family: "Poppins", sans-serif;
+      p {
+        font-size: 0.75rem;
+        padding-right: 6rem;
+      }
+    }
+  }
+  .posts-rectangle {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 465px) {
+  .style {
+    height: 6.5rem;
+  }
+}

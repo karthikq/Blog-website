@@ -1,0 +1,31 @@
+<!-- @format -->
+
+<%- include("./partials/header.ejs") -%> 
+
+    <div class="posts-container">
+      <div class="posts-contents">
+        <div class="posts-form">
+          <div class="user-img-profile" >
+            <img src="<%=userPosts.img%>" alt="">
+          </div>
+          <form action="/" method="POST" >
+            <label>Name</label>
+            <input type="text" name="name" value="<%=userPosts.name%>"  readonly  />
+          
+            <label class="label-2">Your post</label>
+            <textarea name="post" cols="30" rows="10" minlength="10" required></textarea>
+            <div class="btns" >
+             
+               <button class="btns-back">  <a href="/?user=<%=user%>&auth=<%=true%>">Go back</a>  </button>
+              <button type="submit">Submit post</button>
+            </div>
+        
+ 
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<%- include("./partials/footer.ejs") -%> 

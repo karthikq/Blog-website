@@ -1,0 +1,35 @@
+<!-- @format -->
+
+<%- include("./partials/header.ejs") -%>
+
+<div class="user-container">
+  <div class="user-contents">
+    <div class="user-conten-box">
+      <div class="user-texts">
+        <a
+          href="/users/post/<%=userData.name%>?user=<%=user%>&auth=<%=true%>"
+          style="text-decoration: none"
+        >
+          <h2>Post by <%=userData.name%></h2>
+        </a>
+        <p>Poster On: <span> <%=userData.year%> </span></p>
+      </div>
+      <div class="posts-div">
+        <div class="user-img">
+          <img src="<%=userData.img%>" alt="error" />
+        </div>
+        <div class="user-posts-2">
+          <p><%=userData.post %></p>
+        </div>
+      </div>
+
+      <div class="back-page">
+        <a href="/?user=<%=user%>&auth=<%=true%>">
+          <i class="fas fa-long-arrow-alt-left"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("./partials/footer.ejs") -%>

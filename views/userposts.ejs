@@ -1,0 +1,38 @@
+<!-- @format -->
+<%- include("./partials/header.ejs") -%>
+<div class="users-post-container">
+  <div class="users-posts-contents">
+    <div class="user-details-div">
+      <div class="users-posts-img">
+        <img src="<%=post.img%>" alt="error" />
+      </div>
+      <div class="user-name-data">
+        <h3><%=post.name%></h3>
+
+        <p>No of posts : <span><%=userDetails.length%></span></p>
+      </div>
+    </div>
+    <div class="users-posts-all">
+      <div class="users-data">
+        <div class="users-flex">
+          <%{userDetails.map((detail)=>{ %>
+
+          <div class="user-rectangle">
+            <p>
+              <%=detail.post.substring(0,20) %>
+              <a
+                href="/user/post/<%=detail._id%>?user=<%=user%>&auth=<%=true%>"
+                class="anchor"
+              >
+                Read more ..</a
+              >
+            </p>
+            <span>Date : <span> <%=detail.year%> </span></span>
+          </div>
+          <% })} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("./partials/footer.ejs") -%>

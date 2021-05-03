@@ -1,0 +1,148 @@
+/** @format */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Source+Sans+Pro:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap");
+
+.user-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+}
+.user-contents {
+  padding: 10% 8%;
+}
+.user-conten-box {
+  color: rgb(255, 255, 255);
+  max-width: 50%;
+  margin: 0 auto;
+}
+.user-texts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h2 {
+    color: #f040ca;
+    font-family: "Press Start 2P", cursive;
+    font-size: 1.1rem;
+    font-weight: 100;
+    &:hover {
+      color: white;
+    }
+  }
+  P {
+    color: #fa67da;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    span {
+      color: aliceblue;
+    }
+  }
+}
+.user-posts-2 {
+  width: 100%;
+  height: 20rem;
+  overflow-x: auto;
+  background-color: #6f6f6f42;
+
+  p {
+    padding: 1rem;
+    padding-right: 4rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.93rem;
+    text-transform: capitalize;
+    font-weight: 200;
+    letter-spacing: 1.5px;
+    line-height: 1.8;
+    color: rgb(255, 255, 255);
+  }
+}
+.user-img {
+  width: 8rem;
+  height: 20rem;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.671) 0%, white 90%);
+    mix-blend-mode: multiply;
+    opacity: 1;
+    transition: all 0.55s ease-in-out;
+    animation: fade 4s ease;
+  }
+  &:hover::before {
+    opacity: 0;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.posts-div {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+.back-page {
+  display: flex;
+  justify-content: flex-end;
+
+  .fas {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: aliceblue;
+    transition: all 0.2s;
+    &:hover {
+      color: #e7e7e7a2;
+      transform: translateX(-2px);
+    }
+  }
+}
+@media screen and (max-width: 1105px) {
+  .user-img {
+    width: 5.8rem;
+  }
+  .user-contents {
+    padding: 22% 2%;
+    color: white;
+  }
+  .user-conten-box {
+    color: rgb(255, 255, 255);
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .user-texts {
+    flex-wrap: wrap;
+    h2 {
+      font-family: "Press Start 2P", cursive;
+      font-size: 0.9rem;
+      padding-right: 1.8rem;
+      line-height: 1.8;
+    }
+  }
+  .user-posts-2 {
+    color: white;
+    overflow-x: auto;
+    p {
+      font-weight: 100;
+      letter-spacing: 1.5px;
+      line-height: 1.65;
+      font-size: 0.85rem;
+      color: white;
+      padding-right: 0.7rem;
+      padding-top: 0;
+    }
+  }
+}

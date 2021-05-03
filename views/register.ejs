@@ -1,0 +1,91 @@
+<!-- @format -->
+<%- include("./partials/header.ejs") -%>
+<div class="login-container">
+  <div class="login-contents">
+    <div class="login-box">
+      <!-- <div class="login-page-img">
+        <img src="../images/1.png" alt="" />
+      </div> -->
+      <div class="login-details">
+        <% let array=[] %>
+        <h2>Sign-Up</h2>
+
+        <div class="form-details">
+          <%- include("./partials/messages.ejs") %>
+          <form
+            action="/user/register"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <label>Name</label>
+            <% if(typeof data != "undefined"){ %>
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              maxlength="7"
+              required
+              value="<%=data.name%>"
+            />
+            <% }else{%>
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              maxlength="7"
+              required
+            />
+
+            <%}%>
+
+            <label>Profile picture</label>
+            <input
+              type="file"
+              placeholder="profile pic"
+              name="image"
+              required
+            />
+            <label>Email</label>
+            <% if(typeof data != "undefined"){%>
+            <input
+              type="email"
+              placeholder="Enter Email"
+              name="email"
+              required
+              value="<%=data.email%> "
+            />
+            <%}else{%>
+            <input
+              type="email"
+              placeholder="Enter Email"
+              name="email"
+              required
+            />
+            <%}%>
+
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="password"
+            />
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="password2"
+            />
+            <button type="submit">Sign up</button>
+          </form>
+        </div>
+
+        <div class="register-page-link">
+          <p>If you already have an accout <a href="/user/login">Login</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<%- include("./partials/footer.ejs") -%>

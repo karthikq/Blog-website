@@ -1,0 +1,30 @@
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous"></script>
+<script  >
+ const loader = document.querySelector(".loader");
+const ham = document.querySelector(".ham");
+const sidebar = document.querySelector(".side-bar");
+const nav = document.querySelector(".navbar-anima");
+ 
+ 
+gsap.from(".stagger",{opacity:0,y:50,duration:1.5,stagger:0.3});
+gsap.from(".posts-form",{opacity:0,  duration:1 });
+
+ham.addEventListener("click",()=>{
+          sidebar.classList.toggle("active");
+          const state = sidebar.classList.contains("active")
+         if(state == true) { 
+                   nav.setAttribute("src","../images/x.svg")
+                   nav.classList.add("fadeout")
+                   nav.classList.remove("fadein")
+                  
+        }else{
+          nav.setAttribute("src","../images/menu.svg")
+          nav.classList.remove("fadeout")
+          nav.classList.add("fadein")
+        }
+});
+ 
+</script>
+</body>
+</html>

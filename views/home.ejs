@@ -1,0 +1,137 @@
+<!-- @format -->
+
+<%- include("./partials/header.ejs") -%>
+
+  <div class="container">
+    <!-- <div class="loader" >
+    <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_wfuvPB/92 - New Post.json"  background="transparent"  speed="1"  style="width: 100px; height: 100px;"  loop  autoplay></lottie-player>
+  </div> -->
+    <div class="contents">
+      <div class="nav-bar ">
+        <div class="brand">
+          <h2>Blog Post's</h2>
+          <div class="error-div animate__animated animate__fadeIn">
+
+            <p class="errors">
+              <%=errors%>
+            </p>
+          </div>
+
+
+        </div>
+
+      </div>
+      <div class="side-bar">
+        <div class="ham">
+          <img class="navbar-anima" src="../images/menu.svg" alt="er">
+        </div>
+
+        <div class="side-bar-items">
+          <a href="/posts?user=<%=user%>">
+            <button> Create Posts <i class="fas fa-plus" style="margin: 0.2rem"></i> </button> </a>
+        </div>
+
+        <div class="users">
+          <h2>Today's Posts by :</h2>
+          <div class="user-names">
+
+            <% posts.forEach(post=> { %>
+              <div class="user-name">
+
+                <img src="<%=post.img%>" alt="error" />
+
+                <p>
+                  <%=post.name.substring(0,7)%>
+                </p>
+
+              </div>
+              <% }) %>
+
+
+          </div>
+        </div>
+        <div class="logout">
+          <% if(typeof posts !="undefined" ){ %>
+            <a href="/user/logout"> <button> Logout </button> </a>
+            <%} else{ %>
+              <a href="/"> <button> Goback </button> </a>
+              <% } %>
+
+
+        </div>
+      </div>
+    </div>
+    <div class="user-posts">
+
+      <% if(typeof posts !="undefined" ){ %>
+
+        <%} else { %>
+
+          <div class="alert-message">
+            <%- include("./partials/error.ejs") %>
+          </div>
+          <% } %>
+
+            <% if(typeof posts !="undefined" ){ %>
+              <% posts.forEach(element=> { %>
+                <div class="users-posts-margin stagger">
+                  <div class="style">
+                    <img src="<%=element.img%>" alt="e" />
+                  </div>
+                  <div class="posts-rectangle">
+
+                    <div class="posts-user-name">
+                      <%if(element.post){%>
+
+                        <a href="/users/post/<%=element.name%>?user=<%=user%>&auth=<%=true%>" style="text-decoration: none">
+                          <h4>
+                            <%=element.name.substring(0,7) %>
+                          </h4>
+                        </a>
+                        <%}%>
+
+                          <p>
+                            <%=element.year%>
+                          </p>
+
+                    </div>
+                    <div class="users-post">
+                      <p>
+                        <%if(element.post){%>
+                          <%=element.post.substring(0,18) %>
+                            <% }%>
+
+                              <a href="/user/post/<%=element._id%>?user=<%=user%>&auth=<%=true%>" class="anchor"> Read more ..</a>
+                      </p>
+
+                    </div>
+                    <% if(typeof user != "undefined"){%>
+                      <% if(element.name==user){%>
+                        <div class="icons">
+                          <div class="edit"><a href="/edit/<%=element._id%>?user=<%=user%>"> <i class="far fa-edit"></i> </a>
+
+                          </div>
+                          <form action="<%=" /delete/"+element._id%>?_method=DELETE" method="POST">
+                            <div class="delete-icon">
+
+                              <button type="submit" class="delete-btn"> <i class="fas fa-trash"></i> </button>
+                            </div>
+                          </form>
+                        </div>
+                     <% } %>
+                     <% } %>
+
+                  </div>
+                </div>
+                <% }) %>
+                  <% } %>
+
+
+
+
+
+    </div>
+  </div>
+  </div>
+
+  <%- include("./partials/footer.ejs") -%>

@@ -1,0 +1,27 @@
+<!-- @format -->
+
+<%- include("./partials/header.ejs") -%> 
+
+    <div class="posts-container">
+      <div class="posts-contents">
+          
+        <div class="posts-form">
+                  <div class="user-img-profile" >
+                    <img src="<%=userData.img%>" alt="">
+                  </div>
+                 
+          <form action="<%="/edit/"+userData._id%>?_method=PUT" method="POST"   >
+            <label>Name</label>
+            <input type="text" name="name" value="<%=userData.name%>"  readonly  />
+           
+            <label class="label-2">Your post</label>
+            <textarea name="post" id="myTextarea" cols="30" rows="10" minlength="10" required  > <%=userData.post%> </textarea>
+            <button type="submit">Update post</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<%- include("./partials/footer.ejs") -%> 
